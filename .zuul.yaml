@@ -1,0 +1,39 @@
+- job:
+    name: ansible-role-whisper-base
+    pre-run: tests/playbooks/pre.yaml
+    run: tests/playbooks/run.yaml
+    roles:
+      - zuul: openstack/ansible-role-whisper
+
+# Testing for whisper_install_method: git
+- job:
+    name: ansible-role-whisper-src
+    parent: ansible-role-whisper-base
+
+- job:
+    name: ansible-role-whisper-src-fedora-27
+    parent: ansible-role-whisper-src
+    nodeset: fedora-27
+
+- job:
+    name: ansible-role-whisper-src-ubuntu-bionic
+    parent: ansible-role-whisper-src
+    nodeset: ubuntu-bionic
+
+- job:
+    name: ansible-role-whisper-src-ubuntu-xenial
+    parent: ansible-role-whisper-src
+    nodeset: ubuntu-xenial
+
+- project:
+    check:
+      jobs:
+        - ansible-role-whisper-src-fedora-27
+        - ansible-role-whisper-src-ubuntu-bionic
+        - ansible-role-whisper-src-ubuntu-xenial
+        - tox-linters
+    gate:
+      jobs:
+        - ansible-role-whisper-src-fedora-27
+        - ansible-role-whisper-src-ubuntu-xenial
+        - tox-linters
