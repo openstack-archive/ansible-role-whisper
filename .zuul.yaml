@@ -60,7 +60,9 @@
     gate:
       jobs:
         - ansible-role-whisper-fedora-27
+        - ansible-role-whisper-ubuntu-bionic
         - ansible-role-whisper-ubuntu-xenial
         - ansible-role-whisper-src-fedora-27
+        - ansible-role-whisper-src-ubuntu-bionic
         - ansible-role-whisper-src-ubuntu-xenial
         - tox-linters
