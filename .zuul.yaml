@@ -11,9 +11,9 @@
     parent: ansible-role-whisper-base
 
 - job:
-    name: ansible-role-whisper-fedora-27
+    name: ansible-role-whisper-fedora-latest
     parent: ansible-role-whisper
-    nodeset: fedora-27
+    nodeset: fedora-latest
 
 - job:
     name: ansible-role-whisper-ubuntu-bionic
@@ -33,9 +33,9 @@
       whisper_install_method: git
 
 - job:
-    name: ansible-role-whisper-src-fedora-27
+    name: ansible-role-whisper-src-fedora-latest
     parent: ansible-role-whisper-src
-    nodeset: fedora-27
+    nodeset: fedora-latest
 
 - job:
     name: ansible-role-whisper-src-ubuntu-bionic
@@ -50,19 +50,19 @@
 - project:
     check:
       jobs:
-        - ansible-role-whisper-fedora-27
+        - ansible-role-whisper-fedora-latest
         - ansible-role-whisper-ubuntu-bionic
         - ansible-role-whisper-ubuntu-xenial
-        - ansible-role-whisper-src-fedora-27
+        - ansible-role-whisper-src-fedora-latest
         - ansible-role-whisper-src-ubuntu-bionic
         - ansible-role-whisper-src-ubuntu-xenial
         - tox-linters
     gate:
       jobs:
-        - ansible-role-whisper-fedora-27
+        - ansible-role-whisper-fedora-latest
         - ansible-role-whisper-ubuntu-bionic
         - ansible-role-whisper-ubuntu-xenial
-        - ansible-role-whisper-src-fedora-27
+        - ansible-role-whisper-src-fedora-latest
         - ansible-role-whisper-src-ubuntu-bionic
         - ansible-role-whisper-src-ubuntu-xenial
         - tox-linters
