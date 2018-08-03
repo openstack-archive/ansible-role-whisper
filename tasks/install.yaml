@@ -24,12 +24,4 @@
     state: installed
   when: whisper_install_method == 'git' or whisper_install_method == 'pip'
 
-- name: Define whisper_pip_executable if needed.
-  set_fact:
-    whisper_pip_executable: pip3
-  when:
-    - whisper_install_method == 'git' or whisper_install_method == 'pip'
-    - whisper_pip_virtualenv_python is not defined
-    - whisper_pip_executable is not defined
-
 - include: "install/{{ whisper_install_method }}.yaml"
