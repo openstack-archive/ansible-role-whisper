@@ -1,0 +1,8 @@
+Code-Review+2: Paul Belanger <pabelanger@redhat.com>
+Workflow+1: Paul Belanger <pabelanger@redhat.com>
+Verified+2: Zuul
+Submitted-by: Zuul
+Submitted-at: Wed, 20 Feb 2019 02:23:22 +0000
+Reviewed-on: https://review.openstack.org/638056
+Project: openstack/ansible-role-whisper
+Branch: refs/heads/master
